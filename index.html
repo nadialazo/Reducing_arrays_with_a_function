@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <title>Reducing Arrays With A Function</title>
+</head>
+<body>
+    <script>
+   // 1) Sum of an array
+
+    function sum(myArray) {
+        let sum = 0;
+        for (let i of myArray){
+            sum += i;
+        }
+        return sum;
+    }
+
+console.log(sum([2, 3, 4]));
+
+function arrayReduction(thirdArray){
+    let sum = thirdArray.reduce((total, amount) => total + amount);
+    return sum;
+}
+
+console.log(arrayReduction([2, 3, 4]));
+    
+
+    // 2)  Average of an array
+
+    function avrg(secondArray) {
+        let sum = 0;
+        for (let i of secondArray){
+            sum += i;
+        }
+        return sum/secondArray.length;
+    }
+
+    console.log(avrg([16, 4, 10]));
+
+    // 3) Refactor your code to re-use function
+
+    function arrayAverage(myArray){
+        sum(myArray);
+        return sum(myArray)/myArray.length;
+    }
+
+    console.log(arrayAverage([16, 4, 10]));
+    
+
+    // Bonus 1
+
+    function largestArray(myArray){
+        return Math.max.apply(Math, myArray);
+    }
+
+    console.log(largestArray([1, 2, 3]));
+    
+    // Bonus 2
+
+    function addingTheMaxInArray (startArray, endArray){
+        let startArrayMax = 0
+        let endArrayMax = 0;
+
+        startArrayMax = largestArray(startArray);
+        endArrayMax = largestArray(endArray);
+
+        return startArrayMax + endArrayMax;
+    }
+
+    console.log(addingTheMaxInArray([1, 2, 3], [4, 5, 6]));
+
+
+   
+
+    </script>
+</body>
+</html>
